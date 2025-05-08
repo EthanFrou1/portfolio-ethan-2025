@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Ethan 2025</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/index.js" defer></script>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow z-50 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Ethan</h1>
+            <nav class="hidden md:flex space-x-4">
+                <a href="#accueil" class="hover:text-blue-600">Accueil</a>
+                <a href="#apropos" class="hover:text-blue-600">À propos</a>
+                <a href="#experience" class="hover:text-blue-600">Expérience</a>
+                <a href="#cv" class="hover:text-blue-600">CV</a>
+                <a href="#services" class="hover:text-blue-600">Services</a>
+                <a href="#contact" class="hover:text-blue-600">Contact</a>
+            </nav>
+            <button id="burger-btn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <nav id="mobile-menu" class="md:hidden hidden flex-col bg-white shadow-lg border-t border-gray-200 space-y-4">
+            <a href="#accueil" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">Accueil</a>
+            <a href="#apropos" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">À propos</a>
+            <a href="#experience" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">Expérience</a>
+            <a href="#cv" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">CV</a>
+            <a href="#services" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">Services</a>
+            <a href="#contact" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="accueil" class="relative min-h-screen flex items-center justify-center text-center px-6 pt-24 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1650&q=80');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative z-10 fade-in text-white">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Bienvenue sur mon Portfolio</h2>
+            <p class="text-lg text-gray-200 mb-6" data-aos="fade-right">Développeur web passionné — HTML, CSS, JS & C#</p>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="apropos" class="bg-white max-w-4xl mx-auto px-6 py-16" data-aos="fade-up">
+        <h3 class="text-3xl font-semibold mb-10 text-center">À propos</h3>
+        <div class="grid md:grid-cols-2 items-center">
+            <div data-aos="zoom-in">
+                <img src="assets/ethan.jpeg" alt="Développeur web" class="w-72 mx-auto">
+            </div>
+            <div data-aos="fade-left">
+                <p class="text-gray-700 leading-relaxed text-lg">
+                    Développeur web en alternance depuis 3 ans, je conçois des interfaces modernes et fonctionnelles.
+                    J’aime créer des applications simples, rapides et accessibles. Je travaille principalement avec HTML, CSS, JavaScript et C#.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack technique / Badges -->
+    <section id="stack" class="bg-gray-50 py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-semibold mb-6" data-aos="fade-up">Mes compétences</h3>
+            <p class="text-gray-700 mb-10" data-aos="fade-up" data-aos-delay="100">
+                Voici un aperçu des technologies que j'utilise régulièrement pour concevoir des interfaces modernes, rapides et accessibles.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4" data-aos="zoom-in" data-aos-delay="200">
+                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full shadow-sm hover:scale-105 transition">HTML5</span>
+                <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full shadow-sm hover:scale-105 transition">CSS3</span>
+                <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full shadow-sm hover:scale-105 transition">JavaScript</span>
+                <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full shadow-sm hover:scale-105 transition">Tailwind CSS</span>
+                <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full shadow-sm hover:scale-105 transition">C#</span>
+                <span class="px-4 py-2 bg-red-100 text-red-800 rounded-full shadow-sm hover:scale-105 transition">.NET</span>
+                <span class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full shadow-sm hover:scale-105 transition">Git</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expérience -->
+    <section id="experience" class="bg-gray-100 py-16 px-6" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-semibold mb-10 text-center">Expérience professionnelle</h3>
+            <div class="bg-white shadow-md rounded p-6">
+                <h4 class="text-2xl font-bold text-blue-700 mb-2">Développeur Web en Alternance</h4>
+                <p class="text-gray-700 italic mb-1">elloha, Perpignan — Depuis 2022</p>
+                <p class="text-gray-600 mb-4">Alternance sur 3 ans dans le cadre d’un Bac+2 puis Bac+3</p>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li>Développement front-end avec HTML, CSS, JavaScript</li>
+                    <li>Participation à la maintenance et évolution de l’application principale</li>
+                    <li>Développement back-end en C# (.NET)</li>
+                    <li>Travail en équipe avec Git, méthode agile</li>
+                    <li>Optimisation du code et gestion des performances</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modale de feedback -->
+    <div id="modal-message" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden opacity-100 transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center animate-fade-in">
+            <h3 id="modal-title" class="text-xl font-semibold mb-2">Message envoyé ✅</h3>
+            <p id="modal-text" class="text-gray-700 mb-4">Merci pour votre message, je vous répondrai rapidement.</p>
+            <button onclick="closeModal()" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Fermer</button>
+        </div>
+    </div>
+
+    <!-- CV -->
+    <section id="cv" class="bg-white py-16 px-6" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-semibold mb-6 text-center">Mon CV</h3>
+            <p class="text-gray-700 text-lg text-center mb-6">
+                Voici un aperçu de mon parcours académique et professionnel. Vous pouvez consulter ou télécharger mon CV complet pour en savoir plus sur mes compétences, mes formations et mon expérience.
+            </p>
+            <div class="text-center mb-6">
+                <a href="assets/EthanFrou.pdf" target="_blank" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 mr-2">📥 Télécharger le CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Freelance -->
+    <section id="services" class="bg-gray-100 py-16 px-6" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-semibold mb-6">Mes services</h3>
+            <p class="text-gray-700 text-lg mb-6">
+                En parallèle de mon alternance, je propose mes services en tant que freelance sur la plateforme <strong>Malt</strong>.
+                Je crée des sites web modernes, responsives et optimisés, adaptés aux besoins de mes clients.
+            </p>
+            <p class="text-gray-700 mb-6">
+                Que ce soit pour un site vitrine, un portfolio, un blog ou une solution plus technique, je suis disponible pour étudier votre projet et vous proposer un accompagnement personnalisé.
+            </p>
+            <a href="https://www.malt.fr/profile/ethanfrou" target="_blank" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+                📬 Voir mon profil Malt
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-white max-w-4xl mx-auto px-6 py-16" data-aos="fade-up">
+        <h3 class="text-3xl font-semibold mb-6">Contact</h3>
+        <form id="contact-form" class="space-y-4">
+            <input type="text" name="user_name" placeholder="Nom" class="w-full border p-3 rounded" required>
+            <input type="email" name="user_email" placeholder="Email" class="w-full border p-3 rounded" required>
+            <textarea name="message" placeholder="Message" class="w-full border p-3 rounded" rows="5" required></textarea>
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm">&copy; 2025 Ethan - Tous droits réservés.</p>
+            <div class="space-x-4 mt-4 md:mt-0">
+                <a href="https://www.linkedin.com/in/ethan-frou-2253b32b6/" class="hover:text-blue-400" target="_blank">LinkedIn</a>
+                <a href="mailto:ethanfrou1@gmail.com" class="hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
