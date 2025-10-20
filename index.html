@@ -17,7 +17,7 @@
 <body class="bg-white text-gray-800">
 
     <!-- Header -->
-    <header class="fixed w-full bg-white shadow z-50 border-b border-gray-200">
+    <header class="fixed w-full bg-white shadow z-50 border-b border-gray-200 relative">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold">Ethan</h1>
             <nav class="hidden md:flex space-x-4">
@@ -27,6 +27,11 @@
                 <a href="#cv" class="hover:text-blue-600">CV</a>
                 <a href="#services" class="hover:text-blue-600">Services</a>
                 <a href="#contact" class="hover:text-blue-600">Contact</a>
+                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+                    target="_blank" rel="noopener"
+                    class="hover:text-blue-600">
+                    WhatsApp
+                </a>
             </nav>
             <button id="burger-btn" class="md:hidden focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -34,37 +39,205 @@
                 </svg>
             </button>
         </div>
-        <nav id="mobile-menu" class="md:hidden hidden flex-col bg-white shadow-lg border-t border-gray-200 space-y-4">
-            <a href="#accueil" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">Accueil</a>
-            <a href="#apropos" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">À propos</a>
-            <a href="#experience" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">Expérience</a>
-            <a href="#cv" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">CV</a>
-            <a href="#services" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600 border-b border-gray-100">Services</a>
-            <a href="#contact" class="block w-full text-center py-3 text-lg text-gray-700 hover:text-blue-600">Contact</a>
+
+       <!-- Overlay (fond sombre) -->
+        <div id="mobile-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-40"></div>
+
+        <!-- Drawer mobile -->
+        <nav id="mobile-menu" class="fixed top-0 right-0 h-screen w-80 max-w-[85%] bg-white shadow-xl border-l border-gray-200
+                    translate-x-full transition-transform duration-300 ease-out z-50
+                    flex flex-col">
+            <div class="flex items-center justify-between px-5 py-4 border-b">
+                <span class="text-lg font-semibold">Ethan</span>
+                <button id="mobile-close" class="p-2 rounded hover:bg-gray-100" aria-label="Fermer le menu">
+                <!-- Icône X -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto">
+                <a href="#accueil"     class="block px-5 py-4 border-b hover:bg-gray-50">Accueil</a>
+                <a href="#apropos"     class="block px-5 py-4 border-b hover:bg-gray-50">À propos</a>
+                <a href="#experience"  class="block px-5 py-4 border-b hover:bg-gray-50">Expérience</a>
+                <a href="#cv"          class="block px-5 py-4 border-b hover:bg-gray-50">CV</a>
+                <a href="#services"    class="block px-5 py-4 border-b hover:bg-gray-50">Services</a>
+                <a href="#contact"     class="block px-5 py-4 border-b hover:bg-gray-50">Contact</a>
+                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+                target="_blank" rel="noopener"
+                class="block px-5 py-4 bg-green-500 text-white hover:bg-green-600">
+                WhatsApp
+                </a>
+            </div>
         </nav>
+
     </header>
 
     <!-- Hero -->
-    <section id="accueil" class="relative min-h-screen flex items-center justify-center text-center px-6 pt-24 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1650&q=80');">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="relative z-10 fade-in text-white">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Bienvenue sur mon Portfolio</h2>
-            <p class="text-lg text-gray-200 mb-6" data-aos="fade-right">Développeur web passionné — HTML, CSS, JS & C#</p>
+    <section id="accueil" class="relative min-h-[80vh] flex items-center px-6 py-6 pt-24 bg-cover bg-center"
+    style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1650&q=80');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/50"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-10 text-white">
+
+            <!-- Colonne texte -->
+            <div class="flex-1" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                    Des sites web <span class="text-blue-400">rapides</span>, <span class="text-blue-400">propres</span> et prêts à convertir.
+                </h1>
+                <p class="mt-4 text-lg text-gray-200">
+                    Développeur web depuis 2022 — React, Tailwind, C#/.NET & bases de données.
+                    Je conçois des interfaces modernes, accessibles et orientées résultats.
+                </p>
+
+                <!-- CTA -->
+                <div class="mt-6 flex flex-wrap gap-3 hidden sm:block">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg shadow">
+                    Demander un devis gratuit
+                    </a>
+                    <a href="assets/EthanFROU.pdf" target="_blank"
+                    class="bg-white/10 hover:bg-white/20 backdrop-blur px-4 py-3 rounded-lg border border-white/20">
+                    📄 Voir mon CV
+                    </a>
+                    <a href="https://www.linkedin.com/in/ethan-frou-2253b32b6/" target="_blank"
+                    class="bg-white text-gray-900 hover:bg-gray-100 px-4 py-3 rounded-lg">
+                    Profil LinkedIn
+                    </a>
+                    <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+                    target="_blank" rel="noopener"
+                    class="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg shadow">
+                    💬 Discuter sur WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mini preuves -->
+                <div class="mt-6 flex flex-wrap gap-4 max-w-md text-center hidden sm:block">
+                    <div class="bg-white/10 rounded-lg p-3 flex-1 min-w-[110px]">
+                    <div class="text-2xl font-bold">2022</div>
+                    <div class="text-xs text-gray-200">Début en alternance</div>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-3 flex-1 min-w-[110px]">
+                    <div class="text-2xl font-bold">React • .NET</div>
+                    <div class="text-xs text-gray-200">Stack principale</div>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-3 flex-1 min-w-[110px]">
+                    <div class="text-2xl font-bold">Perf & SEO</div>
+                    <div class="text-xs text-gray-200">Focus produit</div>
+                    </div>
+                </div>
+                
+
+                <!-- Trust strip (cachée en mobile) -->
+                <div class="hidden sm:block mt-4">
+                    <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2 inline-flex items-center gap-4">
+                        <span class="text-sm text-gray-200">Ils m’accompagnent :</span>
+                        <img src="assets/logo-elloha.png" alt="elloha" class="h-8">
+                        <img src="assets/logo-idem.png" alt="L’IDEM" class="h-8">
+                        <img src="assets/logo-imerir.png" alt="IMERIR" class="h-8">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte photo + “pitch” -->
+            <div class="w-full md:w-auto md:self-center md:ml-auto flex-shrink-0
+                        min-w-[320px] md:min-w-[360px]" data-aos="fade-left">
+            <div class="bg-white/75 text-gray-800 rounded-2xl shadow-xl p-6 md:p-8 backdrop-blur">
+                <div class="flex items-center gap-4">
+                <img src="assets/ethan.jpeg" alt="Ethan — Développeur web"
+                    class="w-24 h-24 object-cover rounded-2xl ring-4 ring-blue-100">
+                <div>
+                    <p class="text-sm text-gray-500">Basé à Perpignan • Remote OK</p>
+                    <p class="font-semibold">Ethan FROU — Développeur Web</p>
+                    <p class="text-sm text-gray-600">Alternance chez <strong>elloha</strong> depuis 2022</p>
+                </div>
+                </div>
+
+                <ul class="mt-5 space-y-2 text-sm">
+                <li class="flex gap-2"><span>✅</span><span>Sites vitrines & e-commerce orientés conversion</span></li>
+                <li class="flex gap-2"><span>✅</span><span>Intégration React/Tailwind</span></li>
+                <li class="flex gap-2"><span>✅</span><span>APIs & back-end C#/.NET, bases SQL</span></li>
+                </ul>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                <span class="px-3 py-1 text-xs bg-blue-50 text-blue-700 rounded">React</span>
+                <span class="px-3 py-1 text-xs bg-indigo-50 text-indigo-700 rounded">Tailwind</span>
+                <span class="px-3 py-1 text-xs bg-purple-50 text-purple-700 rounded">C#/.NET</span>
+                <span class="px-3 py-1 text-xs bg-amber-50 text-amber-700 rounded">SQL</span>
+                <span class="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded">Git</span>
+                </div>
+            </div>
+            </div>
         </div>
     </section>
 
     <!-- À propos -->
-    <section id="apropos" class="bg-white max-w-4xl mx-auto px-6 py-16" data-aos="fade-up">
-        <h3 class="text-3xl font-semibold mb-10 text-center">À propos</h3>
-        <div class="grid md:grid-cols-2 items-center">
-            <div data-aos="zoom-in">
-                <img src="assets/ethan.jpeg" alt="Développeur web" class="w-72 mx-auto">
+    <section id="apropos" class="bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Photo large -->
+            <div class="relative" data-aos="zoom-in">
+                <img src="assets/ethan.jpeg" alt="Ethan — Développeur web"
+                    class="w-full max-w-sm mx-auto rounded-3xl shadow-xl">
+                <!-- Badge “depuis 2022” -->
+                <div class="hidden md:flex items-center gap-2 absolute -bottom-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">
+                    <span class="text-xs opacity-90">En alternance depuis</span><span class="font-semibold">2022</span>
+                </div>
             </div>
+
+            <!-- Contenu -->
             <div data-aos="fade-left">
+                <h3 class="text-3xl font-semibold mb-4">À propos</h3>
                 <p class="text-gray-700 leading-relaxed text-lg">
-                    Développeur web en alternance depuis 3 ans, je conçois des interfaces modernes et fonctionnelles.
-                    J’aime créer des applications simples, rapides et accessibles. Je travaille principalement avec HTML, CSS, JavaScript et C#.
+                    Développeur web en alternance depuis 2022, je conçois des interfaces modernes et fonctionnelles.
                 </p>
+                <p class="text-gray-700 leading-relaxed text-lg">
+                    Mon truc : des sites rapides, accessibles, bien référencés — et une intégration soignée qui respecte le design.
+                </p>
+
+                <!-- “Pourquoi moi ?” -->
+                <div class="mt-6 flex flex-wrap gap-3 items-stretch">
+                    <!-- carte -->
+                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
+                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
+                            <p class="font-semibold text-[15px]">Orienté résultats</p>
+                            <p class="text-[13px] text-gray-600 mt-1">Perf, SEO technique, métriques claires.</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
+                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
+                            <p class="font-semibold text-[15px]">Stack moderne</p>
+                            <p class="text-[13px] text-gray-600 mt-1">React/Tailwind • C#/.NET • SQL.</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
+                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
+                            <p class="font-semibold text-[15px]">Collab simple</p>
+                            <p class="text-[13px] text-gray-600 mt-1">Git, revues de code, méthodes agiles.</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
+                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
+                            <p class="font-semibold text-[15px]">Livraison carrée</p>
+                            <p class="text-[13px] text-gray-600 mt-1">Qualité, accessibilité, tests.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA secondaires -->
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="#services" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Voir mes services</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-lg border border-gray-300 hover:bg-gray-50">Me contacter</a>
+                    <a href="assets/EthanFROU.pdf" target="_blank" class="px-5 py-2.5 rounded-lg bg-gray-900 text-white hover:bg-black">Télécharger le CV</a>
+                </div>
+
+                <!-- Mini “fiabilité” -->
+                <div class="mt-6 text-sm text-gray-600">
+                    <p><span class="font-medium text-gray-800">Disponibilité :</span> mission freelance en parallèle de l’alternance.</p>
+                    <p><span class="font-medium text-gray-800">Localisation :</span> Perpignan • travail à distance possible.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -81,28 +254,128 @@
                 <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full shadow-sm hover:scale-105 transition">CSS3</span>
                 <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full shadow-sm hover:scale-105 transition">JavaScript</span>
                 <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full shadow-sm hover:scale-105 transition">Tailwind CSS</span>
+                <span class="px-4 py-2 bg-sky-100 text-sky-800 rounded-full shadow-sm hover:scale-105 transition">React</span>
                 <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full shadow-sm hover:scale-105 transition">C#</span>
                 <span class="px-4 py-2 bg-red-100 text-red-800 rounded-full shadow-sm hover:scale-105 transition">.NET</span>
+                <span class="px-4 py-2 bg-amber-100 text-amber-800 rounded-full shadow-sm hover:scale-105 transition">Bases de données (SQL)</span>
                 <span class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full shadow-sm hover:scale-105 transition">Git</span>
             </div>
+
         </div>
     </section>
 
-    <!-- Expérience -->
+    <!-- Expérience + Parcours -->
     <section id="experience" class="bg-gray-100 py-16 px-6" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="text-3xl font-semibold mb-10 text-center">Expérience professionnelle</h3>
-            <div class="bg-white shadow-md rounded p-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Développeur Web en Alternance</h4>
-                <p class="text-gray-700 italic mb-1">elloha, Perpignan — Depuis 2022</p>
-                <p class="text-gray-600 mb-4">Alternance sur 3 ans dans le cadre d’un Bac+2 puis Bac+3</p>
-                <ul class="list-disc pl-5 text-gray-700 space-y-2">
-                    <li>Développement front-end avec HTML, CSS, JavaScript</li>
-                    <li>Participation à la maintenance et évolution de l’application principale</li>
-                    <li>Développement back-end en C# (.NET)</li>
-                    <li>Travail en équipe avec Git, méthode agile</li>
-                    <li>Optimisation du code et gestion des performances</li>
-                </ul>
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl font-semibold mb-10 text-center">Expérience & Parcours</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 relative">
+
+                <!-- Colonne : Expérience pro -->
+                <div class="bg-white shadow-md rounded p-6 relative z-10" data-aos="fade-right">
+                    <h4 class="text-2xl font-bold text-blue-700 mb-6">Expérience professionnelle</h4>
+
+                    <!-- Timeline -->
+                    <div class="space-y-8">
+                        <!-- 2025–2026 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-blue-600 rounded-full dot" title="2025–2026"></div>
+                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-blue-100"></div>
+                            <p class="text-sm text-blue-800 font-semibold">2025–2026</p>
+                            <h5 class="font-semibold">Développeur Web (Alternance) — <span class="text-gray-700">elloha, Perpignan</span></h5>
+                            <p class="text-gray-600 text-sm mb-2">Poursuite d’alternance (Mastère) — Front/Back, optimisation perfs, approche produit.</p>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1 text-sm">
+                            <li>Front : React, Tailwind, accessibilité</li>
+                            <li>Back : C#/.NET, APIs</li>
+                            <li>Qualité : revues de code, CI/CD</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2023–2025 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-blue-600 rounded-full dot" title="2023–2025"></div>
+                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-blue-100"></div>
+                            <p class="text-sm text-blue-800 font-semibold">2023–2025</p>
+                            <h5 class="font-semibold">Développeur Web (Alternance) — <span class="text-gray-700">elloha, Perpignan</span></h5>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1 text-sm">
+                            <li>Composants UI, design system</li>
+                            <li>SEO technique & performances</li>
+                            <li>Back .NET</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2022–2023 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-blue-600 rounded-full dot" title="2022–2023"></div>
+                            <p class="text-sm text-blue-800 font-semibold">2022–2023</p>
+                            <h5 class="font-semibold">Développeur Web (Alternance) — <span class="text-gray-700">elloha, Perpignan</span></h5>
+                            <p class="text-gray-600 text-sm">Entrée en alternance (Bac+2) — fondamentaux front, Git, agilité.</p>
+                        </div>
+                    </div>
+
+                    <!-- Logos entreprise -->
+                    <div class="mt-8 flex items-center gap-4">
+                        <img src="assets/logo-elloha.png" alt="elloha" class="h-24 w-auto"/>
+                    </div>
+                </div>
+
+                <!-- Colonne : Parcours scolaire -->
+                <div class="bg-white shadow-md rounded p-6 relative z-10" data-aos="fade-left">
+                    <h4 class="text-2xl font-bold text-emerald-700 mb-6">Parcours scolaire</h4>
+
+                    <!-- Timeline -->
+                    <div class="space-y-8">
+                        <!-- 2025–2026 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2025–2026"></div>
+                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
+                            <p class="text-sm text-emerald-800 font-semibold">2025–2026</p>
+                            <h5 class="font-semibold">Mastère 2 — <span class="text-gray-700">L’IDEM</span></h5>
+                            <p class="text-gray-600 text-sm">Manager de projets Informatiques Cybersécurité & IA. (Prévu)</p>
+                        </div>
+
+                        <!-- 2024–2025 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2024–2025"></div>
+                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
+                            <p class="text-sm text-emerald-800 font-semibold">2024–2025</p>
+                            <h5 class="font-semibold">Mastère 1 — <span class="text-gray-700">L’IDEM</span></h5>
+                            <p class="text-gray-600 text-sm">Manager de projets Informatiques Cybersécurité &amp; IA. (En cours)</p>
+                        </div>
+
+                        <!-- 2023–2024 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2023–2024"></div>
+                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
+                            <p class="text-sm text-emerald-800 font-semibold">2023–2024</p>
+                            <h5 class="font-semibold">Bac+3 — <span class="text-gray-700">L’IDEM</span></h5>
+                            <p class="text-gray-600 text-sm">Concepteur et développeur d’application. (Obtenu)</p>
+                        </div>
+
+                        <!-- 2022–2023 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2022–2023"></div>
+                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
+                            <p class="text-sm text-emerald-800 font-semibold">2022–2023</p>
+                            <h5 class="font-semibold">Bac+2 — <span class="text-gray-700">IMERIR</span></h5>
+                            <p class="text-gray-600 text-sm">Développeur intégrateur de solutions intranet/internet. (Obtenu)</p>
+                        </div>
+                        
+                        <!-- 2021–2022 -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2021–2022"></div>
+                            <p class="text-sm text-emerald-800 font-semibold">2021–2022</p>
+                            <h5 class="font-semibold">Baccalauréat STI2D — <span class="text-gray-700">Lycée Pablo Picasso (Perpignan)</span></h5>
+                            <p class="text-gray-600 text-sm">Spécialité Sciences et Technologies de l’Industrie et du Développement Durable. (Obtenu)</p>
+                        </div>
+                    </div>
+
+                    <!-- Logos écoles -->
+                    <div class="mt-8 flex items-center gap-4">
+                        <img src="assets/logo-imerir.png" alt="IMERIR" class="h-20 w-auto"/>
+                        <img src="assets/logo-idem.png" alt="L’IDEM" class="h-16 w-auto"/>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -137,7 +410,7 @@
                 En parallèle de mon alternance, je propose mes services en tant que freelance sur la plateforme <strong>Malt</strong>.
                 Je crée des sites web modernes, responsives et optimisés, adaptés aux besoins de mes clients.
             </p>
-            <p class="text-gray-700 mb-6">
+            <p class="text-gray-700 mb-6 text-lg">
                 Que ce soit pour un site vitrine, un portfolio, un blog ou une solution plus technique, je suis disponible pour étudier votre projet et vous proposer un accompagnement personnalisé.
             </p>
             <a href="https://www.malt.fr/profile/ethanfrou" target="_blank" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
@@ -149,6 +422,17 @@
     <!-- Contact -->
     <section id="contact" class="bg-white max-w-4xl mx-auto px-6 py-16" data-aos="fade-up">
         <h3 class="text-3xl font-semibold mb-6">Contact</h3>
+        <div class="mb-6 p-4 rounded-lg border bg-green-50 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="text-center sm:text-left">
+                <p class="font-semibold text-green-700">Besoin d’une réponse rapide ?</p>
+                <p class="text-sm text-green-700/80">Écris-moi directement sur WhatsApp.</p>
+            </div>
+            <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+                target="_blank" rel="noopener"
+                class="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">
+                💬 Ouvrir WhatsApp
+            </a>
+        </div>
         <form id="contact-form" class="space-y-4">
             <input type="text" name="user_name" placeholder="Nom" class="w-full border p-3 rounded" required>
             <input type="email" name="user_email" placeholder="Email" class="w-full border p-3 rounded" required>
@@ -164,9 +448,20 @@
             <div class="space-x-4 mt-4 md:mt-0">
                 <a href="https://www.linkedin.com/in/ethan-frou-2253b32b6/" class="hover:text-blue-400" target="_blank">LinkedIn</a>
                 <a href="mailto:ethanfrou1@gmail.com" class="hover:text-blue-400">Contact</a>
+                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+                    class="hover:text-green-400" target="_blank" rel="noopener">WhatsApp
+                </a>
             </div>
         </div>
     </footer>
+    <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+        target="_blank" rel="noopener"
+        aria-label="Contacter sur WhatsApp"
+        
+        class="fixed bottom-5 right-5 z-50 md:text-base inline-flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600">
+        <span class="hidden sm:block">WhatsApp</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5A10.5 10.5 0 0 0 3.5 20l-1 3 3-1A10.5 10.5 0 1 0 20 3.5Zm-8.3 4.6c.2 0 .4 0 .6.1.2.1.4.5.5.9.1.4.2.8.1 1-.1.2-.2.3-.4.5s-.4.4-.6.5c-.2.2-.5.5-.2 1 .3.6 1.4 2.3 3.2 3 .3.2.6.1.8 0s.5-.4.7-.6c.2-.2.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.4.3.5.5.1.2.1 1.1-.3 1.8-.4.7-1.9 1.3-2.7 1.3-.7 0-1.6-.1-3-.7-2.6-1.1-4.2-3.8-4.5-4.2s-1.1-1.5-1.1-2.9c0-1.4.7-2.1 1-2.4.2-.3.5-.4.8-.4h.1Z"/></svg>
+    </a>
 
 </body>
 </html>
