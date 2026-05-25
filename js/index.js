@@ -1,24 +1,50 @@
-﻿(function () {
-  emailjs.init("ZhjidNaCZiF2Ul7qi");
-})();
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
 
   if (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      emailjs.sendForm("service_22u3f7i", "template_xvh42ag", this).then(
-        function () {
+      const submitBtn = document.getElementById("contact-submit");
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi en cours…";
+
+      // Token Turnstile auto-injecté par le widget dans le champ cf-turnstile-response
+      const turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+      const turnstileToken = turnstileInput ? turnstileInput.value : "";
+
+      const payload = {
+        user_name: (form.querySelector('[name="user_name"]')?.value || "").trim(),
+        user_email: (form.querySelector('[name="user_email"]')?.value || "").trim(),
+        message: (form.querySelector('[name="message"]')?.value || "").trim(),
+        website: form.querySelector('[name="website"]')?.value || "", // honeypot
+        "cf-turnstile-response": turnstileToken,
+      };
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
           showModal(true);
           form.reset();
-        },
-        function (error) {
-          showModal(false);
-          console.error(error);
+          if (window.turnstile) turnstile.reset();
+        } else {
+          showModal(false, result.error);
         }
-      );
+      } catch (err) {
+        console.error("Contact fetch error:", err);
+        showModal(false, "Erreur réseau, veuillez réessayer.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
     });
   }
 
@@ -51,9 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== Drawer mobile (depuis la droite) =====
   const burgerBtn   = document.getElementById("burger-btn");
-  const mobileMenu  = document.getElementById("mobile-menu");     // <nav id="mobile-menu" ... translate-x-full>
-  const mobileClose = document.getElementById("mobile-close");     // bouton X dans le drawer
-  const overlay     = document.getElementById("mobile-overlay");   // <div id="mobile-overlay" ... hidden>
+  const mobileMenu  = document.getElementById("mobile-menu");
+  const mobileClose = document.getElementById("mobile-close");
+  const overlay     = document.getElementById("mobile-overlay");
   const body        = document.body;
 
   function openMenu() {
@@ -79,18 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
       else closeMenu();
     });
 
-    // Bouton X du drawer
     mobileClose && mobileClose.addEventListener("click", closeMenu);
-
-    // Clic sur l’overlay
     overlay && overlay.addEventListener("click", closeMenu);
 
-    // Fermer au clic sur un lien du menu
     mobileMenu.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", closeMenu);
     });
 
-    // Fermer avec la touche Échap
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();
     });
@@ -98,22 +119,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // -------- Modale --------
-function showModal(success = true) {
+function showModal(success = true, errorMsg = null) {
   const modal = document.getElementById("modal-message");
   const title = document.getElementById("modal-title");
-  const text = document.getElementById("modal-text");
+  const text  = document.getElementById("modal-text");
 
   if (success) {
     title.textContent = "Message envoyé ✅";
-    text.textContent = "Merci pour votre message, je vous répondrai rapidement.";
+    text.textContent  = "Merci pour votre message, je vous répondrai rapidement.";
   } else {
     title.textContent = "Erreur ❌";
-    text.textContent = "Une erreur est survenue, veuillez réessayer.";
+    text.textContent  = errorMsg || "Une erreur est survenue, veuillez réessayer.";
   }
 
   modal.classList.remove("hidden");
 
-  // Fermeture automatique au bout de 5 secondes
   setTimeout(() => {
     closeModal();
   }, 5000);

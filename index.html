@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/index.js" defer></script>
 </head>
@@ -542,10 +542,20 @@
             </a>
         </div>
         <form id="contact-form" class="space-y-4">
-            <input type="text" name="user_name" placeholder="Nom" class="w-full border p-3 rounded" required>
-            <input type="email" name="user_email" placeholder="Email" class="w-full border p-3 rounded" required>
-            <textarea name="message" placeholder="Message" class="w-full border p-3 rounded" rows="5" required></textarea>
-            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Envoyer</button>
+            <!-- Honeypot anti-bot : invisible pour les humains, rempli par les bots -->
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+                   style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
+
+            <input type="text" name="user_name" placeholder="Nom" class="w-full border p-3 rounded" required maxlength="100">
+            <input type="email" name="user_email" placeholder="Email" class="w-full border p-3 rounded" required maxlength="200">
+            <textarea name="message" placeholder="Message" class="w-full border p-3 rounded" rows="5" required maxlength="2000"></textarea>
+
+            <!-- Cloudflare Turnstile — remplacez YOUR_SITE_KEY par votre clé publique Turnstile -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADV1vFcpH1EW-GVB" data-theme="light"></div>
+
+            <button type="submit" id="contact-submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                Envoyer
+            </button>
         </form>
     </section>
 

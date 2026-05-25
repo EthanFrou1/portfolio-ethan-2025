@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-ethan-2025",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "build": "echo 'Static site — no build step needed'",
+    "dev": "vercel dev"
+  }
+}
