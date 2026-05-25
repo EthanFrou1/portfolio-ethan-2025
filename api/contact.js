@@ -87,9 +87,12 @@ module.exports = async function handler(req, res) {
   }
 
   if (!tsData.success) {
-    return res
-      .status(400)
-      .json({ error: "Captcha invalide. Veuillez réessayer." });
+    // Log temporaire pour debug — à retirer après résolution
+    console.error("Turnstile failed:", JSON.stringify(tsData));
+    return res.status(400).json({
+      error: "Captcha invalide. Veuillez réessayer.",
+      debug_codes: tsData["error-codes"],
+    });
   }
 
   // Field presence
