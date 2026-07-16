@@ -7,578 +7,489 @@
     <title>Ethan Frou — Développeur Web & Fondateur etnof-web</title>
     <link rel="icon" href="assets/favicon.jpg" type="image/x-icon">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/index.js" defer></script>
 </head>
 
-<body class="bg-white text-gray-800">
+<body>
 
-    <!-- Header -->
-    <header class="fixed w-full bg-white shadow z-50 border-b border-gray-200 relative">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold">Ethan</h1>
-            <nav class="hidden md:flex space-x-4">
-                <a href="#accueil" class="hover:text-blue-600">Accueil</a>
-                <a href="#apropos" class="hover:text-blue-600">À propos</a>
-                <a href="#projets" class="hover:text-blue-600">Projets</a>
-                <a href="#experience" class="hover:text-blue-600">Expérience</a>
-                <a href="#cv" class="hover:text-blue-600">CV</a>
-                <a href="#services" class="hover:text-blue-600">Services</a>
-                <a href="#contact" class="hover:text-blue-600">Contact</a>
-                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
-                    target="_blank" rel="noopener"
-                    class="hover:text-blue-600">
-                    WhatsApp
-                </a>
+    <!-- NAV -->
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="#accueil" class="nav__logo">Ethan<span>.</span></a>
+            <nav class="nav__links">
+                <a href="#apropos" class="nav__link">À propos</a>
+                <a href="#projets" class="nav__link">Projets</a>
+                <a href="#experience" class="nav__link">Expérience</a>
+                <a href="#services" class="nav__link">Services</a>
+                <a href="#contact" class="nav__link">Contact</a>
+                <a href="#contact" class="nav__cta">Devis gratuit</a>
             </nav>
-            <button id="burger-btn" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+            <button id="burger-btn" class="burger" aria-label="Menu" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#14171f" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
-
-       <!-- Overlay (fond sombre) -->
-        <div id="mobile-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-40"></div>
-
-        <!-- Drawer mobile -->
-        <nav id="mobile-menu" class="fixed top-0 right-0 h-screen w-80 max-w-[85%] bg-white shadow-xl border-l border-gray-200
-                    translate-x-full transition-transform duration-300 ease-out z-50
-                    flex flex-col">
-            <div class="flex items-center justify-between px-5 py-4 border-b">
-                <span class="text-lg font-semibold">Ethan</span>
-                <button id="mobile-close" class="p-2 rounded hover:bg-gray-100" aria-label="Fermer le menu">
-                <!-- Icône X -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-                </button>
-            </div>
-
-            <div class="flex-1 overflow-y-auto">
-                <a href="#accueil"     class="block px-5 py-4 border-b hover:bg-gray-50">Accueil</a>
-                <a href="#apropos"     class="block px-5 py-4 border-b hover:bg-gray-50">À propos</a>
-                <a href="#projets"     class="block px-5 py-4 border-b hover:bg-gray-50">Projets</a>
-                <a href="#experience"  class="block px-5 py-4 border-b hover:bg-gray-50">Expérience</a>
-                <a href="#cv"          class="block px-5 py-4 border-b hover:bg-gray-50">CV</a>
-                <a href="#services"    class="block px-5 py-4 border-b hover:bg-gray-50">Services</a>
-                <a href="#contact"     class="block px-5 py-4 border-b hover:bg-gray-50">Contact</a>
-                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
-                target="_blank" rel="noopener"
-                class="block px-5 py-4 bg-green-500 text-white hover:bg-green-600">
-                WhatsApp
-                </a>
-            </div>
-        </nav>
-
     </header>
 
-    <!-- Hero -->
-    <section id="accueil" class="relative min-h-[80vh] flex items-center px-6 py-6 pt-24 bg-cover bg-center"
-    style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1650&q=80');">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/50"></div>
-
-        <div class="relative z-10 max-w-6xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-10 text-white">
-
-            <!-- Colonne texte -->
-            <div class="flex-1" data-aos="fade-right">
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-                    Des sites web <span class="text-blue-400">rapides</span>, <span class="text-blue-400">propres</span> et prêts à convertir.
-                </h1>
-                <p class="mt-4 text-lg text-gray-200 hidden sm:block">
-                    Développeur web depuis 2022 & fondateur d'<strong>etnof-web</strong> — React, Tailwind, C#/.NET.
-                    Je conçois des sites modernes, accessibles et orientés résultats.
-                </p>
-
-                <!-- CTA -->
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg shadow">
-                    Demander un devis gratuit
-                    </a>
-                    <a href="assets/EthanFROU.pdf" target="_blank"
-                    class="bg-white/10 hover:bg-white/20 backdrop-blur px-4 py-3 rounded-lg border border-white/20">
-                    📄 Voir mon CV
-                    </a>
-                    <a href="https://www.linkedin.com/in/ethan-frou-2253b32b6/" target="_blank"
-                    class="bg-white text-gray-900 hover:bg-gray-100 px-4 py-3 rounded-lg">
-                    Profil LinkedIn
-                    </a>
-                    <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
-                    target="_blank" rel="noopener"
-                    class="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg shadow">
-                    💬 Discuter sur WhatsApp
-                    </a>
-                </div>
-
-                <!-- Mini preuves -->
-                <div class="mt-6 hidden sm:flex flex-wrap gap-3 max-w-md text-center">
-                    <div class="bg-white/10 rounded-lg p-3 flex-1 min-w-[100px]">
-                    <div class="text-xl font-bold">2022</div>
-                    <div class="text-xs text-gray-200">En alternance</div>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-3 flex-1 min-w-[100px]">
-                    <div class="text-xl font-bold">etnof-web</div>
-                    <div class="text-xs text-gray-200">Auto-entrepreneur</div>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-3 flex-1 min-w-[100px]">
-                    <div class="text-xl font-bold">React · .NET</div>
-                    <div class="text-xs text-gray-200">Stack principale</div>
-                    </div>
-                </div>
-                
-
-                <!-- Trust strip -->
-                <div class="mt-4 hidden sm:block">
-                    <div class="bg-white/10 backdrop-blur rounded-lg px-4 py-2 inline-flex items-center gap-4">
-                        <span class="text-sm text-gray-200">Ils m’accompagnent :</span>
-                        <img src="assets/logo-elloha.png" alt="elloha" class="h-8">
-                        <img src="assets/logo-idem.png" alt="L’IDEM" class="h-8">
-                        <img src="assets/logo-imerir.png" alt="IMERIR" class="h-8">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Carte photo + “pitch” -->
-            <div class=”hidden md:block md:w-auto md:self-center md:ml-auto flex-shrink-0
-                        md:min-w-[360px]” data-aos=”fade-left”>
-            <div class="bg-white/75 text-gray-800 rounded-2xl shadow-xl p-6 md:p-8 backdrop-blur">
-                <div class="flex items-center gap-4">
-                <img src="assets/ethan.jpeg" alt="Ethan — Développeur web"
-                    class="w-24 h-24 object-cover rounded-2xl ring-4 ring-blue-100">
-                <div>
-                    <p class="text-sm text-gray-500">Basé à Perpignan • Remote OK</p>
-                    <p class="font-semibold">Ethan FROU — Développeur Web</p>
-                    <p class="text-sm text-gray-600">Alternance chez <strong>elloha</strong> · Fondateur <strong>etnof-web</strong></p>
-                </div>
-                </div>
-
-                <ul class="mt-5 space-y-2 text-sm">
-                <li class="flex gap-2"><span>✅</span><span>Sites vitrines & e-commerce orientés conversion</span></li>
-                <li class="flex gap-2"><span>✅</span><span>Intégration React/Tailwind</span></li>
-                <li class="flex gap-2"><span>✅</span><span>APIs & back-end C#/.NET, bases SQL</span></li>
-                </ul>
-
-                <div class="mt-5 flex flex-wrap gap-2">
-                <span class="px-3 py-1 text-xs bg-blue-50 text-blue-700 rounded">React</span>
-                <span class="px-3 py-1 text-xs bg-indigo-50 text-indigo-700 rounded">Tailwind</span>
-                <span class="px-3 py-1 text-xs bg-purple-50 text-purple-700 rounded">C#/.NET</span>
-                <span class="px-3 py-1 text-xs bg-amber-50 text-amber-700 rounded">SQL</span>
-                <span class="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded">Git</span>
-                </div>
-            </div>
-            </div>
+    <!-- MOBILE MENU -->
+    <div id="mobile-overlay" class="mobile-overlay hidden"></div>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu__head">
+            <span>Ethan.</span>
+            <button id="mobile-close" class="mobile-menu__close" aria-label="Fermer le menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14171f" stroke-width="2"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
         </div>
-    </section>
+        <a href="#apropos" class="mobile-menu__link">À propos</a>
+        <a href="#projets" class="mobile-menu__link">Projets</a>
+        <a href="#experience" class="mobile-menu__link">Expérience</a>
+        <a href="#services" class="mobile-menu__link">Services</a>
+        <a href="#contact" class="mobile-menu__link">Contact</a>
+        <a href="#contact" class="mobile-menu__cta">Devis gratuit</a>
+    </nav>
 
-    <!-- À propos -->
-    <section id="apropos" class="bg-white">
-        <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Photo large -->
-            <div class="relative hidden md:block" data-aos="zoom-in">
-                <img src="assets/ethan.jpeg" alt="Ethan — Développeur web"
-                    class="w-full max-w-sm mx-auto rounded-3xl shadow-xl">
-                <!-- Badge “depuis 2022” -->
-                <div class="hidden md:flex items-center gap-2 absolute -bottom-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">
-                    <span class="text-xs opacity-90">En alternance depuis</span><span class="font-semibold">2022</span>
-                </div>
+    <!-- HERO -->
+    <section id="accueil" class="hero">
+        <div class="hero__dots"></div>
+        <div class="hero__glow--blue"></div>
+        <div class="hero__glow--green"></div>
+        <div class="hero__square"></div>
+        <div class="hero__dot"></div>
+
+        <div class="hero__content">
+            <div class="hero__badge">
+                <span class="hero__badge-dot pulse-dot"></span>
+                <span class="hero__badge-text">Disponible pour missions freelance</span>
             </div>
-
-            <!-- Contenu -->
-            <div data-aos="fade-left">
-                <h3 class="text-3xl font-semibold mb-4">À propos</h3>
-                <p class="text-gray-700 leading-relaxed text-lg">
-                    Développeur web en alternance depuis 2022 et fondateur d'<strong>etnof-web</strong>, mon auto-entreprise de développement web.
-                </p>
-                <p class="text-gray-700 leading-relaxed text-lg mt-2">
-                    Mon truc : des sites rapides, accessibles, bien référencés — et une intégration soignée qui respecte le design.
-                </p>
-
-                <!-- “Pourquoi moi ?” -->
-                <div class="mt-6 flex flex-wrap gap-3 items-stretch">
-                    <!-- carte -->
-                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
-                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
-                            <p class="font-semibold text-[15px]">Orienté résultats</p>
-                            <p class="text-[13px] text-gray-600 mt-1">Perf, SEO technique, métriques claires.</p>
-                        </div>
-                    </div>
-
-                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
-                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
-                            <p class="font-semibold text-[15px]">Stack moderne</p>
-                            <p class="text-[13px] text-gray-600 mt-1">React/Tailwind • C#/.NET • SQL.</p>
-                        </div>
-                    </div>
-
-                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
-                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
-                            <p class="font-semibold text-[15px]">Collab simple</p>
-                            <p class="text-[13px] text-gray-600 mt-1">Git, revues de code, méthodes agiles.</p>
-                        </div>
-                    </div>
-
-                    <div class="w-full sm:basis-[calc(50%-0.75rem)] min-w-[220px]">
-                        <div class="p-3 rounded-xl border bg-gray-50 h-full">
-                            <p class="font-semibold text-[15px]">Livraison carrée</p>
-                            <p class="text-[13px] text-gray-600 mt-1">Qualité, accessibilité, tests.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA secondaires -->
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a href="#services" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Voir mes services</a>
-                    <a href="#contact" class="px-5 py-2.5 rounded-lg border border-gray-300 hover:bg-gray-50">Me contacter</a>
-                    <a href="assets/EthanFROU.pdf" target="_blank" class="px-5 py-2.5 rounded-lg bg-gray-900 text-white hover:bg-black">Télécharger le CV</a>
-                </div>
-
-                <!-- Mini “fiabilité” -->
-                <div class="mt-6 text-sm text-gray-600">
-                    <p><span class="font-medium text-gray-800">Disponibilité :</span> freelance via etnof-web, en parallèle de l’alternance.</p>
-                    <p><span class="font-medium text-gray-800">Localisation :</span> Perpignan • travail à distance possible.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stack technique / Badges -->
-    <section id="stack" class="bg-gray-50 py-16 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl font-semibold mb-6" data-aos="fade-up">Mes compétences</h3>
-            <p class="text-gray-700 mb-10" data-aos="fade-up" data-aos-delay="100">
-                Voici un aperçu des technologies que j'utilise régulièrement pour concevoir des interfaces modernes, rapides et accessibles.
+            <h1>Des sites web <span>rapides</span>, <span>propres</span> et prêts à convertir.</h1>
+            <p class="hero__subtitle">
+                Développeur web depuis 2022 & fondateur d'<strong>etnof-web</strong>. Je conçois des sites modernes, accessibles et orientés résultats.
             </p>
-            <div class="flex flex-wrap justify-center gap-4" data-aos="zoom-in" data-aos-delay="200">
-                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full shadow-sm hover:scale-105 transition">HTML5</span>
-                <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full shadow-sm hover:scale-105 transition">CSS3</span>
-                <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full shadow-sm hover:scale-105 transition">JavaScript</span>
-                <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full shadow-sm hover:scale-105 transition">Tailwind CSS</span>
-                <span class="px-4 py-2 bg-sky-100 text-sky-800 rounded-full shadow-sm hover:scale-105 transition">React</span>
-                <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full shadow-sm hover:scale-105 transition">C#</span>
-                <span class="px-4 py-2 bg-red-100 text-red-800 rounded-full shadow-sm hover:scale-105 transition">.NET</span>
-                <span class="px-4 py-2 bg-amber-100 text-amber-800 rounded-full shadow-sm hover:scale-105 transition">Bases de données (SQL)</span>
-                <span class="px-4 py-2 bg-gray-200 text-gray-800 rounded-full shadow-sm hover:scale-105 transition">Git</span>
+            <div class="hero__ctas">
+                <a href="#contact" class="btn btn-primary">Demander un devis gratuit</a>
+                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web." target="_blank" rel="noopener" class="btn btn-ghost-dark">Discuter sur WhatsApp</a>
             </div>
-
+            <a href="#apropos" class="hero__scroll">
+                <span>Découvrir</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
         </div>
     </section>
 
-    <!-- Projets / Réalisations -->
-    <section id="projets" class="bg-white py-16 px-6" data-aos="fade-up">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-semibold mb-3 text-center">Mes réalisations</h3>
-            <p class="text-gray-500 text-center mb-10">De l'idée à la mise en ligne — projets créés et livrés.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- etnof-web -->
-                <div class="rounded-2xl border border-gray-200 shadow-md overflow-hidden flex flex-col" data-aos="fade-right">
-                    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-10 flex items-center justify-center min-h-[180px]">
-                        <div class="text-center text-white">
-                            <div class="text-5xl font-black tracking-tight">ENW</div>
-                            <div class="text-lg font-semibold mt-1">etnof-web</div>
-                            <div class="text-xs opacity-75 mt-1 tracking-widest uppercase">Développement web</div>
-                        </div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded-full font-medium">Auto-entrepreneur</span>
-                            <span class="px-2 py-1 text-xs bg-green-50 text-green-700 rounded-full font-medium">✅ En activité</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2">etnof-web — Mon agence freelance</h4>
-                        <p class="text-gray-600 text-sm flex-1 leading-relaxed">
-                            Création de ma société en auto-entrepreneur. Conception de sites vitrines, applications web et solutions digitales sur mesure pour entreprises et entrepreneurs.
-                        </p>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">Site vitrine</span>
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">App web</span>
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">SEO</span>
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">CRM</span>
-                        </div>
-                        <a href="https://website-etnof-web.vercel.app/" target="_blank" rel="noopener"
-                            class="mt-5 inline-flex items-center justify-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-semibold text-sm transition">
-                            Voir le site etnof-web →
-                        </a>
+    <!-- TRUST STRIP -->
+    <section class="trust">
+        <div class="wrap trust__grid">
+            <div class="trust__profile" data-reveal>
+                <img src="assets/ethan.jpeg" alt="Ethan Frou" class="trust__avatar">
+                <div>
+                    <p class="trust__location">Basé à Perpignan · Remote OK</p>
+                    <p class="trust__name">Ethan FROU — Développeur Web</p>
+                    <p class="trust__role">Alternance chez <strong>elloha</strong> · Fondateur <strong>etnof-web</strong></p>
+                    <div class="tag-row">
+                        <span class="tag-pill tag-pill--blue">React</span>
+                        <span class="tag-pill tag-pill--indigo">Tailwind</span>
+                        <span class="tag-pill tag-pill--purple">C#/.NET</span>
+                        <span class="tag-pill tag-pill--amber">SQL</span>
                     </div>
                 </div>
-
-                <!-- FidélitéProPlus -->
-                <div class="rounded-2xl border border-gray-200 shadow-md overflow-hidden flex flex-col" data-aos="fade-left">
-                    <div class="bg-gradient-to-br from-emerald-500 to-teal-600 p-10 flex items-center justify-center min-h-[180px]">
-                        <div class="text-center text-white">
-                            <div class="text-5xl mb-2">⭐</div>
-                            <div class="text-2xl font-bold leading-tight">FidélitéProPlus</div>
-                            <div class="text-xs opacity-75 mt-1 tracking-widest uppercase">Application de fidélité</div>
-                        </div>
+            </div>
+            <div class="trust__side" data-reveal>
+                <div class="trust__stats">
+                    <div class="trust__stat">
+                        <div class="trust__stat-value">2022</div>
+                        <div class="trust__stat-label">En alternance</div>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="px-2 py-1 text-xs bg-emerald-50 text-emerald-700 rounded-full font-medium">SaaS</span>
-                            <span class="px-2 py-1 text-xs bg-purple-50 text-purple-700 rounded-full font-medium">🚀 1er produit</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2">FidélitéProPlus — Mon 1er produit</h4>
-                        <p class="text-gray-600 text-sm flex-1 leading-relaxed">
-                            Solution de génération de cartes de fidélité digitales. Permet aux commerces de créer et gérer facilement un programme de fidélité dématérialisé pour leurs clients.
-                        </p>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">React</span>
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">SaaS</span>
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">B2B</span>
-                            <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">Fidélité client</span>
-                        </div>
-                        <a href="https://app.fideliteproplus.com/" target="_blank" rel="noopener"
-                            class="mt-5 inline-flex items-center justify-center gap-2 px-5 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 font-semibold text-sm transition">
-                            Voir l'application →
-                        </a>
+                    <div class="trust__stat">
+                        <div class="trust__stat-value">etnof-web</div>
+                        <div class="trust__stat-label">Auto-entrepreneur</div>
+                    </div>
+                    <div class="trust__stat">
+                        <div class="trust__stat-value">React·.NET</div>
+                        <div class="trust__stat-label">Stack principale</div>
                     </div>
                 </div>
-
+                <div class="trust__logos">
+                    <span class="trust__logos-label">Ils m'accompagnent :</span>
+                    <img src="assets/logo-elloha.png" alt="elloha">
+                    <img src="assets/logo-idem.png" alt="L'IDEM">
+                    <img src="assets/logo-imerir.png" alt="IMERIR">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Expérience + Parcours -->
-    <section id="experience" class="bg-gray-100 py-16 px-6" data-aos="fade-up">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-semibold mb-10 text-center">Expérience & Parcours</h3>
+    <!-- A PROPOS -->
+    <section id="apropos" class="about">
+        <div class="about__dots"></div>
+        <div class="about__grid">
+            <div class="about__photo-wrap" data-reveal>
+                <div class="about__photo-bg"></div>
+                <img src="assets/ethan.jpeg" alt="Ethan — Développeur web" class="about__photo">
+                <div class="about__badge">
+                    <span>En alternance depuis</span><span>2022</span>
+                </div>
+            </div>
+            <div data-reveal>
+                <span class="section-eyebrow">À propos</span>
+                <h3>Qui je suis</h3>
+                <p>Développeur web en alternance depuis 2022 et fondateur d'<strong>etnof-web</strong>, mon auto-entreprise de développement web.</p>
+                <p>Mon truc : des sites rapides, accessibles, bien référencés — et une intégration soignée qui respecte le design.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 relative">
-
-                <!-- Colonne : Expérience pro -->
-                <div class="bg-white shadow-md rounded p-6 relative z-10" data-aos="fade-right">
-                    <h4 class="text-2xl font-bold text-blue-700 mb-6">Expérience professionnelle</h4>
-
-                    <!-- Timeline -->
-                    <div class="space-y-8">
-                        <!-- 2025–2026 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-blue-600 rounded-full dot" title="2025–2026"></div>
-                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-blue-100"></div>
-                            <p class="text-sm text-blue-800 font-semibold">2025–2026</p>
-                            <h5 class="font-semibold">Développeur Web (Alternance) — <span class="text-gray-700">elloha, Perpignan</span></h5>
-                            <p class="text-gray-600 text-sm mb-2">Poursuite d’alternance (Mastère) — Front/Back, optimisation perfs, approche produit.</p>
-                            <ul class="list-disc pl-5 text-gray-700 space-y-1 text-sm">
-                            <li>Front : React, Tailwind, accessibilité</li>
-                            <li>Back : C#/.NET, APIs</li>
-                            <li>Qualité : revues de code, CI/CD</li>
-                            </ul>
-                        </div>
-
-                        <!-- 2023–2025 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-blue-600 rounded-full dot" title="2023–2025"></div>
-                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-blue-100"></div>
-                            <p class="text-sm text-blue-800 font-semibold">2023–2025</p>
-                            <h5 class="font-semibold">Développeur Web (Alternance) — <span class="text-gray-700">elloha, Perpignan</span></h5>
-                            <ul class="list-disc pl-5 text-gray-700 space-y-1 text-sm">
-                            <li>Composants UI, design system</li>
-                            <li>SEO technique & performances</li>
-                            <li>Back .NET</li>
-                            </ul>
-                        </div>
-
-                        <!-- 2022–2023 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-blue-600 rounded-full dot" title="2022–2023"></div>
-                            <p class="text-sm text-blue-800 font-semibold">2022–2023</p>
-                            <h5 class="font-semibold">Développeur Web (Alternance) — <span class="text-gray-700">elloha, Perpignan</span></h5>
-                            <p class="text-gray-600 text-sm">Entrée en alternance (Bac+2) — fondamentaux front, Git, agilité.</p>
-                        </div>
+                <div class="about__features">
+                    <div class="about__feature">
+                        <p>Orienté résultats</p>
+                        <p>Perf, SEO technique, métriques claires.</p>
                     </div>
-
-                    <!-- Logos entreprise -->
-                    <div class="mt-8 flex items-center gap-4">
-                        <img src="assets/logo-elloha.png" alt="elloha" class="h-24 w-auto"/>
+                    <div class="about__feature">
+                        <p>Stack moderne</p>
+                        <p>React/Tailwind · C#/.NET · SQL.</p>
+                    </div>
+                    <div class="about__feature">
+                        <p>Collab simple</p>
+                        <p>Git, revues de code, méthodes agiles.</p>
+                    </div>
+                    <div class="about__feature">
+                        <p>Livraison carrée</p>
+                        <p>Qualité, accessibilité, tests.</p>
                     </div>
                 </div>
 
-                <!-- Colonne : Parcours scolaire -->
-                <div class="bg-white shadow-md rounded p-6 relative z-10" data-aos="fade-left">
-                    <h4 class="text-2xl font-bold text-emerald-700 mb-6">Parcours scolaire</h4>
+                <div class="about__ctas">
+                    <a href="#services" class="btn btn-primary btn-sm">Voir mes services</a>
+                    <a href="#contact" class="btn btn-outline btn-sm">Me contacter</a>
+                    <a href="assets/EthanFROU.pdf" target="_blank" class="btn btn-dark btn-sm">Télécharger le CV</a>
+                </div>
 
-                    <!-- Timeline -->
-                    <div class="space-y-8">
-                        <!-- 2025–2026 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2025–2026"></div>
-                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
-                            <p class="text-sm text-emerald-800 font-semibold">2025–2026</p>
-                            <h5 class="font-semibold">Mastère 2 — <span class="text-gray-700">L’IDEM</span></h5>
-                            <p class="text-gray-600 text-sm">Manager de projets Informatiques Cybersécurité & IA. (Prévu)</p>
-                        </div>
+                <div class="about__meta">
+                    <p><span>Disponibilité :</span> freelance via etnof-web, en parallèle de l'alternance.</p>
+                    <p><span>Localisation :</span> Perpignan · travail à distance possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <!-- 2024–2025 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2024–2025"></div>
-                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
-                            <p class="text-sm text-emerald-800 font-semibold">2024–2025</p>
-                            <h5 class="font-semibold">Mastère 1 — <span class="text-gray-700">L’IDEM</span></h5>
-                            <p class="text-gray-600 text-sm">Manager de projets Informatiques Cybersécurité &amp; IA. (En cours)</p>
-                        </div>
-
-                        <!-- 2023–2024 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2023–2024"></div>
-                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
-                            <p class="text-sm text-emerald-800 font-semibold">2023–2024</p>
-                            <h5 class="font-semibold">Bac+3 — <span class="text-gray-700">L’IDEM</span></h5>
-                            <p class="text-gray-600 text-sm">Concepteur et développeur d’application. (Obtenu)</p>
-                        </div>
-
-                        <!-- 2022–2023 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2022–2023"></div>
-                            <div class="absolute left-1.5 top-1 bottom-[-1.5rem] w-0.5 bg-emerald-100"></div>
-                            <p class="text-sm text-emerald-800 font-semibold">2022–2023</p>
-                            <h5 class="font-semibold">Bac+2 — <span class="text-gray-700">IMERIR</span></h5>
-                            <p class="text-gray-600 text-sm">Développeur intégrateur de solutions intranet/internet. (Obtenu)</p>
-                        </div>
-                        
-                        <!-- 2021–2022 -->
-                        <div class="relative pl-8">
-                            <div class="absolute left-0 top-1 w-3 h-3 bg-emerald-600 rounded-full dot" title="2021–2022"></div>
-                            <p class="text-sm text-emerald-800 font-semibold">2021–2022</p>
-                            <h5 class="font-semibold">Baccalauréat STI2D — <span class="text-gray-700">Lycée Pablo Picasso (Perpignan)</span></h5>
-                            <p class="text-gray-600 text-sm">Spécialité Sciences et Technologies de l’Industrie et du Développement Durable. (Obtenu)</p>
-                        </div>
-                    </div>
-
-                    <!-- Logos écoles -->
-                    <div class="mt-8 flex items-center gap-4">
-                        <img src="assets/logo-imerir.png" alt="IMERIR" class="h-20 w-auto"/>
-                        <img src="assets/logo-idem.png" alt="L’IDEM" class="h-16 w-auto"/>
+    <!-- SKILLS -->
+    <section id="competences" class="skills">
+        <div class="skills__dots"></div>
+        <div class="wrap" data-reveal>
+            <div class="section-header">
+                <span class="section-eyebrow on-dark">Compétences</span>
+                <h3 class="section-title on-dark">Les technologies que j'utilise</h3>
+                <p class="section-desc on-dark">Pour concevoir des interfaces modernes, rapides et accessibles.</p>
+            </div>
+            <div class="skills__grid">
+                <div class="skills__card">
+                    <p class="skills__label skills__label--blue">Frontend</p>
+                    <div class="skills__tags">
+                        <span class="skill-tag skill-tag--blue">HTML5</span>
+                        <span class="skill-tag skill-tag--blue">CSS3</span>
+                        <span class="skill-tag skill-tag--blue">JavaScript</span>
+                        <span class="skill-tag skill-tag--blue">React</span>
+                        <span class="skill-tag skill-tag--blue">Tailwind CSS</span>
                     </div>
                 </div>
+                <div class="skills__card">
+                    <p class="skills__label skills__label--green">Backend</p>
+                    <div class="skills__tags">
+                        <span class="skill-tag skill-tag--green">C#</span>
+                        <span class="skill-tag skill-tag--green">.NET</span>
+                        <span class="skill-tag skill-tag--green">SQL</span>
+                        <span class="skill-tag skill-tag--green">APIs REST</span>
+                    </div>
+                </div>
+                <div class="skills__card">
+                    <p class="skills__label skills__label--amber">Outils</p>
+                    <div class="skills__tags">
+                        <span class="skill-tag skill-tag--amber">Git</span>
+                        <span class="skill-tag skill-tag--amber">CI/CD</span>
+                        <span class="skill-tag skill-tag--amber">Vercel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="projects">
+        <div class="wrap">
+            <div class="section-header" data-reveal>
+                <span class="section-eyebrow">Réalisations</span>
+                <h3 class="section-title">De l'idée à la mise en ligne</h3>
+                <p class="section-desc">Projets créés et livrés — captures d'écran à venir.</p>
+            </div>
+
+            <div class="projects__grid">
+                <div class="project-card" data-reveal>
+                    <div class="project-card__cover project-card__cover--blue">
+                        <div class="project-card__cover-dots"></div>
+                        <span class="project-card__num">01</span>
+                        <div class="project-card__cover-content">
+                            <div style="font-size:44px;font-weight:900;letter-spacing:-0.02em">ENW</div>
+                            <div style="font-size:16px;font-weight:600;margin-top:2px">etnof-web</div>
+                            <div style="font-size:11px;opacity:0.75;margin-top:4px;letter-spacing:0.15em;text-transform:uppercase">Développement web</div>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <div class="project-card__badges">
+                            <span class="tag-pill tag-pill--blue">Auto-entrepreneur</span>
+                            <span class="tag-pill" style="background:#e6f7ee;color:#0d7a45">En activité</span>
+                        </div>
+                        <h4>etnof-web — Mon agence freelance</h4>
+                        <p class="desc">Création de ma société en auto-entrepreneur. Conception de sites vitrines, applications web et solutions digitales sur mesure pour entreprises et entrepreneurs.</p>
+                        <div class="project-card__tags">
+                            <span class="tag-chip">Site vitrine</span>
+                            <span class="tag-chip">App web</span>
+                            <span class="tag-chip">SEO</span>
+                            <span class="tag-chip">CRM</span>
+                        </div>
+                        <a href="https://website-etnof-web.vercel.app/" target="_blank" rel="noopener" class="project-card__cta project-card__cta--blue">Voir le site etnof-web →</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-reveal>
+                    <div class="project-card__cover project-card__cover--green">
+                        <div class="project-card__cover-dots"></div>
+                        <span class="project-card__num">02</span>
+                        <div class="project-card__cover-content">
+                            <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.2);margin:0 auto 10px;display:flex;align-items:center;justify-content:center">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg>
+                            </div>
+                            <div style="font-size:20px;font-weight:700;line-height:1.2">FidélitéProPlus</div>
+                            <div style="font-size:11px;opacity:0.75;margin-top:4px;letter-spacing:0.15em;text-transform:uppercase">Application de fidélité</div>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <div class="project-card__badges">
+                            <span class="tag-pill" style="background:#e6f7ee;color:#0d7a45">SaaS</span>
+                            <span class="tag-pill tag-pill--purple">1er produit</span>
+                        </div>
+                        <h4>FidélitéProPlus — Mon 1er produit</h4>
+                        <p class="desc">Solution de génération de cartes de fidélité digitales. Permet aux commerces de créer et gérer facilement un programme de fidélité dématérialisé pour leurs clients.</p>
+                        <div class="project-card__tags">
+                            <span class="tag-chip">React</span>
+                            <span class="tag-chip">SaaS</span>
+                            <span class="tag-chip">B2B</span>
+                            <span class="tag-chip">Fidélité client</span>
+                        </div>
+                        <a href="https://app.fideliteproplus.com/" target="_blank" rel="noopener" class="project-card__cta project-card__cta--green">Voir l'application →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="experience">
+        <div class="experience__dots"></div>
+        <div class="wrap">
+            <div class="section-header" data-reveal>
+                <span class="section-eyebrow">Parcours</span>
+                <h3 class="section-title" style="margin-bottom:0">Expérience & formation</h3>
+            </div>
+
+            <div class="experience__grid">
+                <div class="experience__col" data-reveal>
+                    <h4 class="blue">Expérience professionnelle</h4>
+                    <div class="timeline">
+                        <div class="timeline__item timeline__item--blue">
+                            <div class="timeline__dot timeline__dot--blue pulse-dot"></div>
+                            <p class="timeline__year timeline__year--blue">2025–2026</p>
+                            <h5 class="timeline__title">Développeur Web (Alternance) — <span>elloha, Perpignan</span></h5>
+                            <p class="timeline__desc">Poursuite d'alternance (Mastère) — Front/Back, optimisation perfs, approche produit.</p>
+                            <ul class="timeline__bullets">
+                                <li>Front : React, Tailwind, accessibilité</li>
+                                <li>Back : C#/.NET, APIs</li>
+                                <li>Qualité : revues de code, CI/CD</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__item timeline__item--blue">
+                            <div class="timeline__dot timeline__dot--blue"></div>
+                            <p class="timeline__year timeline__year--blue">2023–2025</p>
+                            <h5 class="timeline__title">Développeur Web (Alternance) — <span>elloha, Perpignan</span></h5>
+                            <ul class="timeline__bullets">
+                                <li>Composants UI, design system</li>
+                                <li>SEO technique & performances</li>
+                                <li>Back .NET</li>
+                            </ul>
+                        </div>
+                        <div class="timeline__item" style="border-left:none">
+                            <div class="timeline__dot timeline__dot--blue"></div>
+                            <p class="timeline__year timeline__year--blue">2022–2023</p>
+                            <h5 class="timeline__title">Développeur Web (Alternance) — <span>elloha, Perpignan</span></h5>
+                            <p class="timeline__desc" style="margin-bottom:0">Entrée en alternance (Bac+2) — fondamentaux front, Git, agilité.</p>
+                        </div>
+                    </div>
+                    <img src="assets/logo-elloha.png" alt="elloha" style="height:64px">
+                </div>
+
+                <div class="experience__col" data-reveal>
+                    <h4 class="green">Parcours scolaire</h4>
+                    <div class="timeline">
+                        <div class="timeline__item timeline__item--green">
+                            <div class="timeline__dot timeline__dot--green"></div>
+                            <p class="timeline__year timeline__year--green">2025–2026</p>
+                            <h5 class="timeline__title">Mastère 2 — <span>L'IDEM</span></h5>
+                            <p class="timeline__desc" style="margin-bottom:0">Manager de projets Informatiques Cybersécurité & IA. (Prévu)</p>
+                        </div>
+                        <div class="timeline__item timeline__item--green">
+                            <div class="timeline__dot timeline__dot--green"></div>
+                            <p class="timeline__year timeline__year--green">2024–2025</p>
+                            <h5 class="timeline__title">Mastère 1 — <span>L'IDEM</span></h5>
+                            <p class="timeline__desc" style="margin-bottom:0">Manager de projets Informatiques Cybersécurité & IA. (En cours)</p>
+                        </div>
+                        <div class="timeline__item timeline__item--green">
+                            <div class="timeline__dot timeline__dot--green"></div>
+                            <p class="timeline__year timeline__year--green">2023–2024</p>
+                            <h5 class="timeline__title">Bac+3 — <span>L'IDEM</span></h5>
+                            <p class="timeline__desc" style="margin-bottom:0">Concepteur et développeur d'application. (Obtenu)</p>
+                        </div>
+                        <div class="timeline__item timeline__item--green">
+                            <div class="timeline__dot timeline__dot--green"></div>
+                            <p class="timeline__year timeline__year--green">2022–2023</p>
+                            <h5 class="timeline__title">Bac+2 — <span>IMERIR</span></h5>
+                            <p class="timeline__desc" style="margin-bottom:0">Développeur intégrateur de solutions intranet/internet. (Obtenu)</p>
+                        </div>
+                        <div class="timeline__item" style="border-left:none">
+                            <div class="timeline__dot timeline__dot--green"></div>
+                            <p class="timeline__year timeline__year--green">2021–2022</p>
+                            <h5 class="timeline__title">Baccalauréat STI2D — <span>Lycée Pablo Picasso (Perpignan)</span></h5>
+                            <p class="timeline__desc" style="margin-bottom:0">Spécialité Sciences et Technologies de l'Industrie et du Développement Durable. (Obtenu)</p>
+                        </div>
+                    </div>
+                    <div class="school-logos">
+                        <img src="assets/logo-imerir.png" alt="IMERIR" style="height:52px">
+                        <img src="assets/logo-idem.png" alt="L'IDEM" style="height:42px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="cv">
+        <div class="cv__glow"></div>
+        <div class="cv__content" data-reveal>
+            <div class="cv__icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b9bff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path stroke-linecap="round" stroke-linejoin="round" d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
+            </div>
+            <h3>Mon CV</h3>
+            <p>Parcours académique et professionnel complet — à consulter ou télécharger.</p>
+            <a href="assets/EthanFROU.pdf" target="_blank" class="btn btn-primary">Télécharger le CV</a>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="services__inner">
+            <div data-reveal>
+                <span class="section-eyebrow">Services</span>
+                <h3 class="section-title">Ce que je peux faire pour vous</h3>
+                <p class="section-desc" style="margin-bottom:48px">Via mon auto-entreprise <strong>etnof-web</strong>, je propose des solutions web complètes pour entrepreneurs et PME.</p>
+            </div>
+
+            <div class="services__grid">
+                <div class="service-card" data-reveal>
+                    <div class="service-card__icon service-card__icon--blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2856a8" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path stroke-linecap="round" d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h4>Site vitrine</h4>
+                    <p>Site moderne, rapide et référencé pour présenter votre activité et capter de nouveaux clients.</p>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-card__icon service-card__icon--purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b3aa8" stroke-width="2"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 0 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3a2 2 0 0 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 0 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1z"/></svg>
+                    </div>
+                    <h4>Application web</h4>
+                    <p>Interface sur mesure connectée à votre métier : CRM, gestion, outil interne ou SaaS.</p>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-card__icon service-card__icon--green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d7a45" stroke-width="2"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
+                    </div>
+                    <h4>Refonte & Optimisation</h4>
+                    <p>Modernisation d'un site existant, amélioration des performances et du SEO.</p>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-card__icon service-card__icon--amber">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8a5a10" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 2L3 14h8l-1 8 10-12h-8z"/></svg>
+                    </div>
+                    <h4>Solutions digitales</h4>
+                    <p>Automatisation, intégrations API, outils sur mesure pour gagner en temps et en efficacité.</p>
+                </div>
+            </div>
+
+            <div class="services__ctas" data-reveal>
+                <a href="https://website-etnof-web.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Voir etnof-web</a>
+                <a href="#contact" class="btn btn-green btn-sm">Demander un devis</a>
+                <a href="https://www.malt.fr/profile/ethanfrou" target="_blank" class="btn btn-outline btn-sm">Profil Malt</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="contact__grid">
+            <div data-reveal>
+                <span class="section-eyebrow">Contact</span>
+                <h3>Parlons de votre projet</h3>
+                <p class="contact__intro">Décrivez votre besoin, je reviens vers vous rapidement avec un devis clair.</p>
+                <div class="contact__whatsapp">
+                    <p>Besoin d'une réponse rapide ?</p>
+                    <p>Écris-moi directement sur WhatsApp.</p>
+                    <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web." target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+                </div>
+                <div class="contact__links">
+                    <a href="mailto:ethanfrou1@gmail.com">ethanfrou1@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/ethan-frou-2253b32b6/" target="_blank">LinkedIn — Ethan Frou</a>
+                </div>
+            </div>
+
+            <div data-reveal>
+                <form id="contact-form" class="contact-form">
+                    <!-- Honeypot anti-bot : invisible pour les humains, rempli par les bots -->
+                    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+                           style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
+
+                    <input type="text" name="user_name" placeholder="Nom" required maxlength="100">
+                    <input type="email" name="user_email" placeholder="Email" required maxlength="200">
+                    <textarea name="message" placeholder="Message" rows="5" required maxlength="2000"></textarea>
+
+                    <!-- Cloudflare Turnstile -->
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAADV1vFcpH1EW-GVB" data-theme="light"></div>
+
+                    <button type="submit" id="contact-submit">Envoyer</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Modale de feedback -->
-    <div id="modal-message" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden opacity-100 transition-opacity duration-300">
-        <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center animate-fade-in">
-            <h3 id="modal-title" class="text-xl font-semibold mb-2">Message envoyé ✅</h3>
-            <p id="modal-text" class="text-gray-700 mb-4">Merci pour votre message, je vous répondrai rapidement.</p>
-            <button onclick="closeModal()" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Fermer</button>
+    <div id="modal-message" class="modal hidden">
+        <div class="modal__card">
+            <h3 id="modal-title">Message envoyé ✅</h3>
+            <p id="modal-text">Merci pour votre message, je vous répondrai rapidement.</p>
+            <button onclick="closeModal()">Fermer</button>
         </div>
     </div>
 
-    <!-- CV -->
-    <section id="cv" class="bg-white py-16 px-6" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="text-3xl font-semibold mb-6 text-center">Mon CV</h3>
-            <p class="text-gray-700 text-lg text-center mb-6">
-                Voici un aperçu de mon parcours académique et professionnel. Vous pouvez consulter ou télécharger mon CV complet pour en savoir plus sur mes compétences, mes formations et mon expérience.
-            </p>
-            <div class="text-center mb-6">
-                <a href="assets/EthanFROU.pdf" target="_blank" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 mr-2">📥 Télécharger le CV</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Freelance -->
-    <section id="services" class="bg-gray-100 py-16 px-6" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl font-semibold mb-3">Mes services</h3>
-            <p class="text-gray-700 text-lg mb-10">
-                Via mon auto-entreprise <strong>etnof-web</strong>, je propose des solutions web complètes pour entrepreneurs et PME.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
-                <div class="bg-white rounded-xl p-5 shadow-sm" data-aos="zoom-in" data-aos-delay="0">
-                    <div class="text-2xl mb-2">🖥️</div>
-                    <h4 class="font-semibold mb-1">Site vitrine</h4>
-                    <p class="text-gray-600 text-sm">Site moderne, rapide et référencé pour présenter votre activité et capter de nouveaux clients.</p>
-                </div>
-                <div class="bg-white rounded-xl p-5 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="text-2xl mb-2">⚙️</div>
-                    <h4 class="font-semibold mb-1">Application web</h4>
-                    <p class="text-gray-600 text-sm">Interface sur mesure connectée à votre métier : CRM, gestion, outil interne ou SaaS.</p>
-                </div>
-                <div class="bg-white rounded-xl p-5 shadow-sm" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="text-2xl mb-2">🔍</div>
-                    <h4 class="font-semibold mb-1">Refonte & Optimisation</h4>
-                    <p class="text-gray-600 text-sm">Modernisation d'un site existant, amélioration des performances et du SEO.</p>
-                </div>
-                <div class="bg-white rounded-xl p-5 shadow-sm" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="text-2xl mb-2">🤖</div>
-                    <h4 class="font-semibold mb-1">Solutions digitales</h4>
-                    <p class="text-gray-600 text-sm">Automatisation, intégrations API, outils sur mesure pour gagner en temps et en efficacité.</p>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="https://website-etnof-web.vercel.app/" target="_blank" rel="noopener"
-                    class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition font-semibold">
-                    🌐 Voir etnof-web
-                </a>
-                <a href="#contact"
-                    class="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition font-semibold">
-                    💬 Demander un devis
-                </a>
-                <a href="https://www.malt.fr/profile/ethanfrou" target="_blank"
-                    class="border border-gray-300 bg-white px-6 py-3 rounded-xl hover:bg-gray-50 transition font-semibold">
-                    📬 Profil Malt
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="bg-white max-w-4xl mx-auto px-6 py-16" data-aos="fade-up">
-        <h3 class="text-3xl font-semibold mb-6">Contact</h3>
-        <div class="mb-6 p-4 rounded-lg border bg-green-50 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div class="text-center sm:text-left">
-                <p class="font-semibold text-green-700">Besoin d’une réponse rapide ?</p>
-                <p class="text-sm text-green-700/80">Écris-moi directement sur WhatsApp.</p>
-            </div>
-            <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
-                target="_blank" rel="noopener"
-                class="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">
-                💬 Ouvrir WhatsApp
-            </a>
-        </div>
-        <form id="contact-form" class="space-y-4">
-            <!-- Honeypot anti-bot : invisible pour les humains, rempli par les bots -->
-            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
-                   style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
-
-            <input type="text" name="user_name" placeholder="Nom" class="w-full border p-3 rounded" required maxlength="100">
-            <input type="email" name="user_email" placeholder="Email" class="w-full border p-3 rounded" required maxlength="200">
-            <textarea name="message" placeholder="Message" class="w-full border p-3 rounded" rows="5" required maxlength="2000"></textarea>
-
-            <!-- Cloudflare Turnstile — remplacez YOUR_SITE_KEY par votre clé publique Turnstile -->
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAADV1vFcpH1EW-GVB" data-theme="light"></div>
-
-            <button type="submit" id="contact-submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
-                Envoyer
-            </button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 mt-16">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <p class="text-sm">&copy; 2025 Ethan Frou · <a href="https://website-etnof-web.vercel.app/" target="_blank" class="hover:text-blue-400">etnof-web</a> — Tous droits réservés.</p>
-            <div class="space-x-4 mt-4 md:mt-0">
-                <a href="https://www.linkedin.com/in/ethan-frou-2253b32b6/" class="hover:text-blue-400" target="_blank">LinkedIn</a>
-                <a href="mailto:ethanfrou1@gmail.com" class="hover:text-blue-400">Contact</a>
-                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
-                    class="hover:text-green-400" target="_blank" rel="noopener">WhatsApp
-                </a>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <p>© 2026 Ethan Frou · <a href="https://website-etnof-web.vercel.app/" target="_blank">etnof-web</a> — Tous droits réservés.</p>
+            <div class="site-footer__links">
+                <a href="https://www.linkedin.com/in/ethan-frou-2253b32b6/" target="_blank">LinkedIn</a>
+                <a href="mailto:ethanfrou1@gmail.com">Contact</a>
+                <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web." target="_blank" rel="noopener">WhatsApp</a>
             </div>
         </div>
     </footer>
-    <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
-        target="_blank" rel="noopener"
-        aria-label="Contacter sur WhatsApp"
-        
-        class="fixed bottom-16 right-5 md:right-5 md:bottom-5 z-50 md:text-base inline-flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600">
-        <span class="hidden sm:block">WhatsApp</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5A10.5 10.5 0 0 0 3.5 20l-1 3 3-1A10.5 10.5 0 1 0 20 3.5Zm-8.3 4.6c.2 0 .4 0 .6.1.2.1.4.5.5.9.1.4.2.8.1 1-.1.2-.2.3-.4.5s-.4.4-.6.5c-.2.2-.5.5-.2 1 .3.6 1.4 2.3 3.2 3 .3.2.6.1.8 0s.5-.4.7-.6c.2-.2.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.4.3.5.5.1.2.1 1.1-.3 1.8-.4.7-1.9 1.3-2.7 1.3-.7 0-1.6-.1-3-.7-2.6-1.1-4.2-3.8-4.5-4.2s-1.1-1.5-1.1-2.9c0-1.4.7-2.1 1-2.4.2-.3.5-.4.8-.4h.1Z"/></svg>
+
+    <a href="https://wa.me/33638855704?text=Bonjour%20Ethan%2C%20je%20souhaite%20parler%20d%27un%20projet%20web." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp" class="whatsapp-bubble">
+        <span>WhatsApp</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5A10.5 10.5 0 0 0 3.5 20l-1 3 3-1A10.5 10.5 0 1 0 20 3.5Zm-8.3 4.6c.2 0 .4 0 .6.1.2.1.4.5.5.9.1.4.2.8.1 1-.1.2-.2.3-.4.5s-.4.4-.6.5c-.2.2-.5.5-.2 1 .3.6 1.4 2.3 3.2 3 .3.2.6.1.8 0s.5-.4.7-.6c.2-.2.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.4.3.5.5.1.2.1 1.1-.3 1.8-.4.7-1.9 1.3-2.7 1.3-.7 0-1.6-.1-3-.7-2.6-1.1-4.2-3.8-4.5-4.2s-1.1-1.5-1.1-2.9c0-1.4.7-2.1 1-2.4.2-.3.5-.4.8-.4h.1Z"/></svg>
     </a>
 
 </body>

@@ -48,18 +48,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Animation des éléments au chargement
-  document.querySelectorAll(".fade-in").forEach((el) => {
-    setTimeout(() => {
-      el.classList.add("visible");
-    }, 100);
-  });
-
-  // Initialisation AOS
-  AOS.init({
-    duration: 800,
-    once: true,
-  });
+  // Animation au scroll (reveal)
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  if (revealEls.length) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+  }
 
   // Smooth scroll avec animation
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -76,15 +80,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== Drawer mobile (depuis la droite) =====
-  const burgerBtn   = document.getElementById("burger-btn");
-  const mobileMenu  = document.getElementById("mobile-menu");
+  const burgerBtn = document.getElementById("burger-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
   const mobileClose = document.getElementById("mobile-close");
-  const overlay     = document.getElementById("mobile-overlay");
-  const body        = document.body;
+  const overlay = document.getElementById("mobile-overlay");
+  const body = document.body;
 
   function openMenu() {
     if (!mobileMenu) return;
-    mobileMenu.classList.remove("translate-x-full");
+    mobileMenu.classList.add("is-open");
     overlay && overlay.classList.remove("hidden");
     body.classList.add("overflow-hidden");
     burgerBtn && burgerBtn.setAttribute("aria-expanded", "true");
@@ -92,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function closeMenu() {
     if (!mobileMenu) return;
-    mobileMenu.classList.add("translate-x-full");
+    mobileMenu.classList.remove("is-open");
     overlay && overlay.classList.add("hidden");
     body.classList.remove("overflow-hidden");
     burgerBtn && burgerBtn.setAttribute("aria-expanded", "false");
@@ -101,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (burgerBtn && mobileMenu) {
     burgerBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (mobileMenu.classList.contains("translate-x-full")) openMenu();
+      if (!mobileMenu.classList.contains("is-open")) openMenu();
       else closeMenu();
     });
 
@@ -122,14 +126,14 @@ document.addEventListener("DOMContentLoaded", function () {
 function showModal(success = true, errorMsg = null) {
   const modal = document.getElementById("modal-message");
   const title = document.getElementById("modal-title");
-  const text  = document.getElementById("modal-text");
+  const text = document.getElementById("modal-text");
 
   if (success) {
     title.textContent = "Message envoyé ✅";
-    text.textContent  = "Merci pour votre message, je vous répondrai rapidement.";
+    text.textContent = "Merci pour votre message, je vous répondrai rapidement.";
   } else {
     title.textContent = "Erreur ❌";
-    text.textContent  = errorMsg || "Une erreur est survenue, veuillez réessayer.";
+    text.textContent = errorMsg || "Une erreur est survenue, veuillez réessayer.";
   }
 
   modal.classList.remove("hidden");
